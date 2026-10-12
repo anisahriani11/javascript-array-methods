@@ -1,0 +1,39 @@
+console.log("=== CASE 1: FORMAT NAMA ===");
+
+const names = " Riyanda Azis, Arifian Saputra , Hasan Harahap ";
+
+const cleanNames = names.trim();
+const nameArray = cleanNames.split(",");
+
+const formattedNames = nameArray.map(name =>
+    name.trim().toLowerCase().replace(/\s+/g, "_")
+);
+
+const result = formattedNames.join(" | ");
+
+console.log(result);
+
+console.log("\n=== CASE 2: E-COMMERCE PRODUCT FILTER ===");
+
+const products = [
+    { name: "Laptop", price: 1000, active: true },
+    { name: "Mouse", price: 20, active: false },
+    { name: "Keyboard", price: 50, active: true }
+];
+
+const activeProducts = products.filter(
+    product => product.active === true
+);
+
+const activeProductNames = activeProducts.map(
+    product => product.name.toUpperCase()
+);
+
+const totalPrice = activeProducts.reduce(
+    (total, product) => total + product.price,
+    0
+);
+
+console.log("Produk aktif:", activeProducts);
+console.log("Nama produk:", activeProductNames);
+console.log("Total harga:", totalPrice);
